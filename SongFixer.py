@@ -22,12 +22,18 @@ def getMP3s(directory):
 def sanitizeString(string):
 	return sub(r'[?|$|.|!|/|\\]',r'', string)
 
+<<<<<<< HEAD
 ## Alerts the user that a song is being removed, and then deletes it.
 def deleteSong(song, explanation=None):
 	output = "Deleting " + song + ". "
 	if(explanation is not None):
 		output += "(" + explanation + ")"
 	print(output)
+=======
+## Deletes a given song
+def deleteSong(song):
+	print("Deleting " + song)
+>>>>>>> origin/master
 	os.remove(song)
 
 ## Gets the last part of a path (eg. /dir1/dir2/test returns test)
@@ -57,10 +63,17 @@ def main(delete, title_artist, title_only, min_bitrate, directory):
 				if(not title_only):				## Thus, we'll have the title and the artist somewhere.
 					renamed[1] = ' - '
 
+<<<<<<< HEAD
 				if(not title_artist): 			## Thus, the artist string comes first
 					renamed[0] = sanitizeString(str(loaded["artist"][0])) * (not title_only)
 					renamed[2] = title
 				else:							## Thus, the title string comes first
+=======
+				if(not title_artist): 		## Thus, the artist string comes first
+					renamed[0] = sanitizeString(str(loaded["artist"][0])) * (not title_only)
+					renamed[2] = title
+				else:				## Thus, the title string comes first
+>>>>>>> origin/master
 					renamed[0] = title
 					renamed[2] = sanitizeString(str(loaded["artist"][0])) * (not title_only)
 
