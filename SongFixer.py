@@ -19,6 +19,7 @@ def getMP3s():
 def sanitizeString(string):
 	return sub(r'[?|$|.|!|/|\\]',r'', string)
 
+## Deletes a given song
 def deleteSong(song):
 	print("Deleting " + song)
 	os.remove(song)
@@ -39,10 +40,10 @@ def main(delete, title_artist, title_only):
 				if(not title_only):		## Thus, we'll have the title and the artist somewhere.
 					renamed[1] = ' - '
 
-				if(not title_artist): 	## Thus, the artist string comes first
+				if(not title_artist): 		## Thus, the artist string comes first
 					renamed[0] = sanitizeString(str(loaded["artist"][0])) * (not title_only)
 					renamed[2] = title
-				else:					## Thus, the title string comes first
+				else:				## Thus, the title string comes first
 					renamed[0] = title
 					renamed[2] = sanitizeString(str(loaded["artist"][0])) * (not title_only)
 
